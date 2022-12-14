@@ -51,7 +51,7 @@ err_t ConnectionManager::connectedFunc(void *arg, struct tcp_pcb *tpcb,
 
 // Check if there's data available in the buffer.
 static inline bool isAvailable(const std::unique_ptr<ConnectionState> &state) {
-  return (0 <= state->bufPos && state->bufPos < state->buf.size());
+  return (state->bufPos < state->buf.size());
 }
 
 // Copy any remaining data from the state to the "remaining" buffer. This first
