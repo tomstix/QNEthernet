@@ -446,7 +446,7 @@ static inline void update_bufdesc(volatile enetbufferdesc_t *bdPtr,
   LINK_STATS_INC(link.xmit);
 }
 
-static err_t t41_low_level_output(struct netif *netif, struct pbuf *p) {
+static err_t t41_low_level_output([[maybe_unused]]struct netif *netif, struct pbuf *p) {
   volatile enetbufferdesc_t *bdPtr = get_bufdesc();
   uint16_t copied = pbuf_copy_partial(p, bdPtr->buffer, p->tot_len, 0);
   if (copied == 0) {
@@ -533,7 +533,7 @@ static inline void check_link_status() {
 
 #ifndef QNETHERNET_PROMISCUOUS_MODE
 // Multicast filter for letting the hardware know which packets to let in.
-static err_t multicast_filter(struct netif *netif, const ip4_addr_t *group,
+static err_t multicast_filter([[maybe_unused]]struct netif *netif, const ip4_addr_t *group,
                               enum netif_mac_filter_action action) {
   switch (action) {
     case NETIF_ADD_MAC_FILTER:

@@ -40,7 +40,7 @@ EthernetFrameClass &EthernetFrameClass::instance() {
 // A reference to the singleton.
 EthernetFrameClass &EthernetFrame = EthernetFrameClass::instance();
 
-err_t EthernetFrameClass::recvFunc(struct pbuf *p, struct netif *netif) {
+err_t EthernetFrameClass::recvFunc(struct pbuf *p, [[maybe_unused]]struct netif *netif) {
   struct pbuf *pHead = p;
 
   // Push (replace the head)

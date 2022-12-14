@@ -109,7 +109,7 @@ void EthernetClient::setConnectionTimeout(uint16_t timeout) {
   connTimeout_ = timeout;
 }
 
-void EthernetClient::setNoDelay(bool flag) {
+void EthernetClient::setNoDelay([[maybe_unused]]bool flag) {
   if (conn_ == nullptr) {
     return;
   }

@@ -134,7 +134,7 @@ class EthernetFrameClass final : public Stream {
   EthernetFrameClass();
   ~EthernetFrameClass() = default;
 
-  static err_t recvFunc(struct pbuf *p, struct netif *netif);
+  static err_t recvFunc(struct pbuf *p, [[maybe_unused]]struct netif *netif);
 
   // Checks if there's data still available in the packet.
   bool isAvailable() const;
