@@ -41,7 +41,7 @@ struct ConnectionState final {
 
   // Incoming data buffer
   std::vector<uint8_t> buf;
-  volatile size_t bufPos = 0;
+  size_t bufPos = 0;
 
   // Called from the desctructor after the callback arg is deleted.
   std::function<void(ConnectionState *)> removeFunc = nullptr;
